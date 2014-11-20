@@ -2,12 +2,11 @@ var gulp = require('gulp'),
     git = require('gulp-git'),
     bump = require('gulp-bump'),
     filter = require('gulp-filter'),
-    tag_version = require('gulp-tag-version'),
+    tagVersion = require('gulp-tag-version'),
     runSequence = require('run-sequence'),
-    es = require('event-stream')
-shell = require('gulp-shell');
+    shell = require('gulp-shell')
 
-;
+    ;
 
 /**
  * Bumping version number.
@@ -23,50 +22,50 @@ shell = require('gulp-shell');
  * introduced a minor or major (backwards-incompatible) feature.
  */
 
-
-gulp.task('tagCommit', function () {
-    return gulp.src(config.paths.package)
-        .pipe(shell(['git ls-files -z release/ | xargs -0 git update-index --no-assume-unchanged',
-            'git add --all',
-            'git commit -am "bumps package version"',
-            'git ls-files -z release/ | xargs -0 git update-index --assume-unchanged'
-        ]))
-        .pipe(filter(config.paths.package))
-        .pipe(tag_version()) // tag it in the repository 
-        .pipe(git.push('origin', 'master', {args: '--tags'})) // push the tags to master
-        ;
-});
-
-gulp.task('pullRebase', function (cb) {
-    git.pull('origin', 'master', {args: '--rebase'}, function (err) {
-        if (err) {
-            throw err;
-        } else {
-            cb();
-        }
+module.exports = function (opts) {
+    gulp.task('tagCommit', function () {
+        return gulp.src(opts.packageJson)
+            .pipe(shell(['git ls-files -z release/ | xargs -0 git update-index --no-assume-unchanged',
+                'git add --all',
+                'git commit -am "bumps package version"',
+                'git ls-files -z release/ | xargs -0 git update-index --assume-unchanged'
+            ]))
+            .pipe(filter(opts.packageJson))
+            .pipe(tagVersion()) // tag it in the repository 
+            .pipe(git.push('origin', 'master', {args: '--tags'})) // push the tags to master
+            ;
     });
-});
 
-gulp.task('bump', function () {
-    return gulp.src(config.paths.package) // get all the files to bump version in
-        .pipe(bump({type: importance})) // bump the version number in those files
-        .pipe(gulp.dest('./'));  // save it back to filesystem
-});
+    gulp.task('pullRebase', function (cb) {
+        git.pull('origin', 'master', {args: '--rebase'}, function (err) {
+            if (err) {
+                throw err;
+            } else {
+                cb();
+            }
+        });
+    });
 
-var importance;
+    gulp.task('bump', function () {
+        return gulp.src(opts.packageJson) // get all the files to bump version in
+            .pipe(bump({type: importance})) // bump the version number in those files
+            .pipe(gulp.dest('./'));  // save it back to filesystem
+    });
 
-function inc(imp) {
-    importance = imp;
-    global.release = true;
-    runSequence('pullRebase', 'testNoWatch', 'bump', 'default', 'tagCommit');
-}
+    var importance;
 
-gulp.task('patch', function () {
-    return inc('patch');
-});
-gulp.task('minor', function () {
-    return inc('minor');
-});
-gulp.task('major', function () {
-    return inc('major', true);
-});
+    function inc(imp) {
+        importance = imp;
+        runSequence('pullRebase', 'testNoWatch', 'bump', 'release', 'tagCommit');
+    }
+
+    gulp.task('patch', function () {
+        return inc('patch');
+    });
+    gulp.task('minor', function () {
+        return inc('minor');
+    });
+    gulp.task('major', function () {
+        return inc('major', true);
+    });
+};
