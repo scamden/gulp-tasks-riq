@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/relateiq/gulp-tasks-riq/issues"
   },
-  "homepage": "https://github.com/relateiq/gulp-tasks-riq"
+  "homepage": "https://github.com/relateiq/gulp-tasks-riq",
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  }
 }
