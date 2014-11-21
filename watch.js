@@ -16,6 +16,5 @@ module.exports = function (opts) {
         watch({glob: opts.index}, ['index']);
         watch({glob: opts.templates}, ['templates']);
         watch({glob: opts.styles}, ['styles']);
-        watch({glob: opts.tests}, ['karma']);
     });
 };
