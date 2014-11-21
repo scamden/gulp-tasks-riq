@@ -59,7 +59,7 @@ module.exports = function (opts) {
 
     function inc(imp) {
         importance = imp;
-        runSequence('pullRebase', 'testNoWatch', 'bump', 'release', 'tagCommit');
+        runSequence('pullRebase', 'testsNoWatch', 'bump', 'release', 'tagCommit');
     }
 
     gulp.task('patch', function () {
