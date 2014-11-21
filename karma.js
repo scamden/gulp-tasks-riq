@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 var karma = require('gulp-karma');
 
-module.exports = function (opts) {
+module.exports = function (taskOpts) {
     var karmaConf;
-    require(opts.karmaConfPath)({
+    require(taskOpts.karmaConfPath)({
         set: function (conf) {
             karmaConf = conf;
         }
@@ -18,14 +18,12 @@ module.exports = function (opts) {
             cache: {}, packageCache: {}, fullPaths: true, debug: true
         };
         opts.browserify.transform = [];
-        console.log(opts);
-        if (opts.transforms) {
-            opts.browserify.transform.concat(opts.transforms);
+        if (taskOpts.transforms) {
+            opts.browserify.transform.concat(taskOpts.transforms);
         }
-        if (opts.coverage) {
+        if (taskOpts.coverage) {
             opts.browserify.transform.push('browserify-istanbul');
         }
-        console.log(opts.browserify.transform);
         return opts;
     }
 
