@@ -1,39 +1,40 @@
 {
-    "name": "gulp-tasks-riq",
-    "version": "0.0.4",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/relateiq/gulp-tasks-riq.git"
-    },
-    "keywords": [
-        "gulp",
-        "tasks"
-    ],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/relateiq/gulp-tasks-riq/issues"
-    },
-    "homepage": "https://github.com/relateiq/gulp-tasks-riq",
-    "dependencies": {
-        "browserify": "^6.3.2",
-        "colors": "^1.0.3",
-        "gulp": "^3.8.10",
-        "gulp-bump": "^0.1.11",
-        "gulp-filter": "^1.0.2",
-        "gulp-git": "0.5.0",
-        "gulp-shell": "^0.2.10",
-        "gulp-tag-version": "^1.1.0",
-        "karma": "^0.12.25",
-        "karma-browserify": "^1.0.0",
-        "run-sequence": "^1.0.2",
-        "through2": "^1.0.0",
-        "vinyl-source-stream": "^1.0.0",
-        "watchify": "^2.1.1"
-    }
+  "name": "gulp-tasks-riq",
+  "version": "0.0.4",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/relateiq/gulp-tasks-riq.git"
+  },
+  "keywords": [
+    "gulp",
+    "tasks"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/relateiq/gulp-tasks-riq/issues"
+  },
+  "homepage": "https://github.com/relateiq/gulp-tasks-riq",
+  "dependencies": {
+    "browserify": "^6.3.2",
+    "colors": "^1.0.3",
+    "gulp": "^3.8.10",
+    "gulp-bump": "^0.1.11",
+    "gulp-filter": "^1.0.2",
+    "gulp-git": "0.5.0",
+    "gulp-karma": "0.0.4",
+    "gulp-shell": "^0.2.10",
+    "gulp-tag-version": "^1.1.0",
+    "karma": "^0.12.25",
+    "karma-browserify": "^1.0.0",
+    "run-sequence": "^1.0.2",
+    "through2": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.1.1"
+  }
 }

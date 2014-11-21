@@ -21,6 +21,15 @@ module.exports = function (taskOpts) {
         if (taskOpts.coverage) {
             opts.browserify.transform.push('browserify-istanbul');
         }
+
+        opts.files = opts.files || [];
+        opts.preprocessors = opts.preprocessors || {};
+        if (taskOpts.testGlobs) {
+            taskOpts.testGlobs.forEach(function (glob) {
+                opts.files.push(glob);
+                opts.preprocessors[glob] = ['browserify'];
+            });
+        }
         return opts;
     }
 
