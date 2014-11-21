@@ -18,6 +18,7 @@ module.exports = function (opts) {
             cache: {}, packageCache: {}, fullPaths: true, debug: true
         };
         opts.browserify.transform = [];
+        console.log(opts);
         if (opts.transforms) {
             opts.browserify.transform.concat(opts.transforms);
         }
