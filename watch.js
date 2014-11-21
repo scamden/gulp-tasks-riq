@@ -3,9 +3,10 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var livereload = require('gulp-livereload');
-var livereloadServer = livereload(config.ports.livereloadServer);
+
 
 module.exports = function (opts) {
+    var livereloadServer = livereload(opts.port);
     return gulp.task('watch', function () {
         gulp.watch(opts.livereload).on('change', function (file) {
             livereloadServer.changed(file.path);
@@ -16,5 +17,5 @@ module.exports = function (opts) {
         watch({glob: opts.templates}, ['templates']);
         watch({glob: opts.styles}, ['styles']);
         watch({glob: opts.tests}, ['karma']);
-    });  
+    });
 };
