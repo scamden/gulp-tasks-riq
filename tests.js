@@ -6,7 +6,7 @@ module.exports = function (opts) {
         run('clean', 'templates', 'lint', 'watch', 'karma-watch');
     });
 
-    gulp.task('testNoWatch', function (cb) {
+    gulp.task('testsNoWatch', function (cb) {
         run('clean', 'templates', 'lint', 'karma', cb);
     });
 };
