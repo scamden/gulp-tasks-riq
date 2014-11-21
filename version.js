@@ -23,14 +23,16 @@ var gulp = require('gulp'),
  */
 
 module.exports = function (opts) {
+    var packageJson = opts.packageJson || 'package.json';
     gulp.task('tagCommit', function () {
-        return gulp.src(opts.packageJson)
+
+        return gulp.src(packageJson)
             .pipe(shell(['git ls-files -z release/ | xargs -0 git update-index --no-assume-unchanged',
                 'git add --all',
                 'git commit -am "bumps package version"',
                 'git ls-files -z release/ | xargs -0 git update-index --assume-unchanged'
             ]))
-            .pipe(filter(opts.packageJson))
+            .pipe(filter(packageJson))
             .pipe(tagVersion()) // tag it in the repository 
             .pipe(git.push('origin', 'master', {args: '--tags'})) // push the tags to master
             ;
@@ -47,7 +49,7 @@ module.exports = function (opts) {
     });
 
     gulp.task('bump', function () {
-        return gulp.src(opts.packageJson) // get all the files to bump version in
+        return gulp.src(packageJson) // get all the files to bump version in
             .pipe(bump({type: importance})) // bump the version number in those files
             .pipe(gulp.dest('./'));  // save it back to filesystem
     });
