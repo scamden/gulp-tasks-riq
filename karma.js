@@ -17,14 +17,12 @@ module.exports = function (opts) {
         opts.browserify = {
             cache: {}, packageCache: {}, fullPaths: true, debug: true
         };
+        opts.browserify.transform = [];
+        if (opts.transforms) {
+            opts.browserify.transform.concat(opts.transforms);
+        }
         if (opts.coverage) {
-            opts.browserify.transform = [
-                ['browserify-istanbul', {
-                    ignore: ['**/bower_components/**', '**/templates.js', '**/proto/**', '**/grid-spec-helper/**', '**/*.spec.js', '**/node_modules/!(@grid)/**', '**/src/modules/**'],
-                    defaultIgnore: false
-                }]
-            ];
-
+            opts.browserify.transform.push('browserify-istanbul');
         }
         return opts;
     }
