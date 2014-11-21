@@ -1,31 +1,33 @@
 {
-    "name": "gulp-tasks-riq",
-    "version": "0.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/relateiq/gulp-tasks-riq.git"
-    },
-    "keywords": [
-        "gulp",
-        "tasks"
-    ],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/relateiq/gulp-tasks-riq/issues"
-    },
-    "homepage": "https://github.com/relateiq/gulp-tasks-riq",
-    "dependencies": {
-        "gulp": "^3.8.10",
-        "browserify": "^6.3.2",
-        "colors": "^1.0.3",
-        "through2": "^0.6.3",
-        "vinyl-source-stream": "^1.0.0",
-        "watchify": "^2.1.1"
-    }
+  "name": "gulp-tasks-riq",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/relateiq/gulp-tasks-riq.git"
+  },
+  "keywords": [
+    "gulp",
+    "tasks"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/relateiq/gulp-tasks-riq/issues"
+  },
+  "homepage": "https://github.com/relateiq/gulp-tasks-riq",
+  "dependencies": {
+    "browserify": "^6.3.2",
+    "colors": "^1.0.3",
+    "gulp": "^3.8.10",
+    "karma": "^0.12.25",
+    "karma-browserify": "^1.0.0",
+    "through2": "^0.6.3",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.1.1"
+  }
 }

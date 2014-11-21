@@ -15,7 +15,18 @@ module.exports = function (taskOpts) {
             action: action
         };
         opts.browserify = {
-            cache: {}, packageCache: {}, fullPaths: true, debug: true
+            cache: {}, packageCache: {}, fullPaths: true, debug: true,
+            prebundle: function (bundle) {
+                var aliasify = require('aliasify').configure({
+                    "aliases": {
+                        "@uiQ": "./src/modules",
+                        "@util": "./src/modules/util",
+                        "@tmp": "./tmp"
+                    }
+                });
+                bundle.transform(aliasify);
+            }
+
         };
         opts.browserify.transform = [];
         if (taskOpts.transforms) {
