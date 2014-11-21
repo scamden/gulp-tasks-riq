@@ -5,12 +5,14 @@ var runSequence = require('run-sequence');
 
 gulp.task('prebuild', ['index', 'styles', 'images', 'assets', 'templates', 'lint']);
 
+gulp.task('prebuild-release', ['index-release', 'styles', 'images', 'assets', 'templates', 'lint']);
+
 gulp.task('watchServe', ['watch', 'serve']);
 
 gulp.task('release', function (cb) {
     runSequence(
         'clean',
-        'prebuild',
+        'prebuild-release',
         'browserify-omega',
         'minify',
         cb
