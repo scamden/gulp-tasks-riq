@@ -33,7 +33,7 @@ module.exports = function (taskOpts) {
         console.log('opts', opts);
         console.log('taskOpts', taskOpts);
         if (taskOpts.transforms) {
-            opts.browserify.transform.concat(taskOpts.transforms);
+            opts.browserify.transform = opts.browserify.transform.concat(taskOpts.transforms);
         }
         if (taskOpts.coverage) {
             opts.browserify.transform.push('browserify-istanbul');
