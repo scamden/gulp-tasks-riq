@@ -39,6 +39,7 @@ module.exports = function (taskOpts) {
 
         if (taskOpts.transforms) {
             taskOpts.transforms.forEach(function (transform) {
+                console.log('adding transform');
                 bundler.transform(transform);
             });
         }
