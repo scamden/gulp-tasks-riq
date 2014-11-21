@@ -3,10 +3,10 @@ module.exports = function (opts) {
     var run = require('run-sequence');
 
     gulp.task('tests', function () {
-        run('clean', 'templates', 'lint', 'browserify-omega', 'watch');
+        run('clean', 'templates', 'lint', 'watch', 'karma-watch');
     });
 
     gulp.task('testNoWatch', function (cb) {
-        run('clean', 'templates', 'lint', 'browserify-omega', 'karma', cb);
+        run('clean', 'templates', 'lint', 'karma', cb);
     });
 };
