@@ -17,7 +17,7 @@ module.exports = function (taskOpts) {
         opts.browserify = {
             cache: {}, packageCache: {}, fullPaths: true, debug: true,
             prebundle: function (bundle) {
-                console.log(bundle);
+                console.log('BUNDLEEEEE', bundle);
                 var aliasify = require('aliasify').configure({
                     "aliases": {
                         "@uiQ": "./src/modules",
@@ -30,12 +30,15 @@ module.exports = function (taskOpts) {
 
         };
         opts.browserify.transform = [];
+        console.log('opts', opts);
+        console.log('taskOpts', taskOpts);
         if (taskOpts.transforms) {
             opts.browserify.transform.concat(taskOpts.transforms);
         }
         if (taskOpts.coverage) {
             opts.browserify.transform.push('browserify-istanbul');
         }
+        console.log('taskOpts', taskOpts);
         console.log(opts.browserify.transform);
         return opts;
     }
