@@ -5,7 +5,7 @@ var runSequence = require('run-sequence');
 
 gulp.task('prebuild', ['index', 'styles', 'images', 'assets', 'templates', 'lint']);
 
-gulp.task('prebuild-release', ['index-release', 'styles', 'images', 'assets', 'templates', 'lint']);
+gulp.task('prebuild-release', ['index-release', 'styles', 'images', 'assets', 'templates-release', 'lint']);
 
 gulp.task('watchServe', ['watch', 'serve']);
 
