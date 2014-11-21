@@ -43,9 +43,6 @@ module.exports = function (taskOpts) {
             });
         }
 
-        var aliasify = require('aliasify');
-        bundler.transform(aliasify);
-
         //this puts a semicolon right before the source maps comment, sorta annoying but works
         bundler.pipeline.get('wrap').push(through.obj(function (row, enc, next) {
             this.push(new Buffer(row.toString().replace('//# sourceMappingURL=', ';\n//# sourceMappingURL=')));
