@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 
-gulp.task('release', function () {
-    //nothing;
+gulp.task('release', function (cb) {
+    cb();
 });
 
-gulp.task('testsNoWatch', function () {
-    //no tests 
+gulp.task('testsNoWatch', function (cb) {
+    cb();
 });
 
 
