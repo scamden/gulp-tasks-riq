@@ -23,6 +23,7 @@ var gulp = require('gulp'),
  */
 
 module.exports = function (opts) {
+    opts = opts || {};
     var packageJson = opts.packageJson || 'package.json';
     gulp.task('tagCommit', function () {
 
