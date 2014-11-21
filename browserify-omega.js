@@ -44,13 +44,7 @@ module.exports = function (taskOpts) {
             });
         }
 
-        var aliasify = require('aliasify').configure({
-            aliases: {
-                '@uiQ': './src/modules',
-                '@util': './src/modules/util',
-                '@tmp': './tmp'
-            }
-        });
+        var aliasify = require('aliasify');
         bundler.transform(aliasify);
 
         //this puts a semicolon right before the source maps comment, sorta annoying but works
