@@ -24,6 +24,7 @@ module.exports = function (opts) {
         if (opts.coverage) {
             opts.browserify.transform.push('browserify-istanbul');
         }
+        console.log(opts.browserify.transform);
         return opts;
     }
 
