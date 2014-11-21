@@ -18,7 +18,7 @@ module.exports = function (taskOpts) {
     createBundle = function (bundleOpts, cb) {
         var isWatching = !global.release;
         var bundler, rebundle;
-        
+
         //pull off our unique options so we can pass the rest to browserify
         var name = bundleOpts.output;
         var destination = bundleOpts.dest || taskOpts.dest;
@@ -35,6 +35,12 @@ module.exports = function (taskOpts) {
 
         if (isWatching) {
             bundler = watchify(bundler);
+        }
+
+        if (taskOpts.transforms) {
+            taskOpts.transforms.forEach(function (transform) {
+                bundler.transform(transform);
+            });
         }
 
         var aliasify = require('aliasify').configure({
