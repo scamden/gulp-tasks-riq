@@ -15,31 +15,12 @@ module.exports = function (taskOpts) {
             action: action
         };
         opts.browserify = {
-            cache: {}, packageCache: {}, fullPaths: true, debug: true,
-            prebundle: function (bundle) {
-                console.log('BUNDLEEEEE', bundle);
-                var aliasify = require('aliasify').configure({
-                    "aliases": {
-                        "@uiQ": "./src/modules",
-                        "@util": "./src/modules/util",
-                        "@tmp": "./tmp"
-                    }
-                });
-                bundle.transform(aliasify);
-            }
-
+            cache: {}, packageCache: {}, fullPaths: true, debug: true
         };
-        opts.browserify.transform = [];
-        console.log('opts', opts);
-        console.log('taskOpts', taskOpts);
-        if (taskOpts.transforms) {
-            opts.browserify.transform = opts.browserify.transform.concat(taskOpts.transforms);
-        }
+        opts.browserify.transform = taskOpts.transforms || [];
         if (taskOpts.coverage) {
             opts.browserify.transform.push('browserify-istanbul');
         }
-        console.log('taskOpts', taskOpts);
-        console.log(opts.browserify.transform);
         return opts;
     }
 
