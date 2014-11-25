@@ -22,6 +22,9 @@ module.exports = function (taskOpts) {
                     opts.preprocessors[glob] = ['browserify'];
                 });
             }
+            if (taskOpts.configure) {
+                taskOpts.configure(karmaConf);
+            }
         }
     });
 
