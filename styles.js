@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
-var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-ruby-sass');
 var filter = require('gulp-filter');
 
