@@ -15,8 +15,7 @@ module.exports = function (taskOpts) {
     var files = taskOpts.bundleConfigs;
 
 
-    createBundle = function (bundleOpts, cb) {
-        var isWatching = !global.release;
+    createBundle = function (bundleOpts, isWatching, cb) {
         var bundler, rebundle;
 
         //pull off our unique options so we can pass the rest to browserify
@@ -68,11 +67,11 @@ module.exports = function (taskOpts) {
         return rebundle();
     };
 
-    createBundles = function (bundles, cb) {
+    createBundles = function (bundles, isWatching, cb) {
         //i feel so dirty for this hack but it works, and it's the best i can find right now
         var numBundles = bundles.length;
         return bundles.forEach(function (bundle) {
-            return createBundle(bundle, function () {
+            return createBundle(bundle, isWatching, function () {
                 numBundles--;
                 if (numBundles === 0) {
                     cb();
@@ -82,7 +81,10 @@ module.exports = function (taskOpts) {
     };
 
     gulp.task('browserify-omega', function (cb) {
-        createBundles(files, cb);
+        createBundles(files, false, cb);
     });
 
+    gulp.task('watchify-omega', function (cb) {
+        createBundles(files, true, cb);
+    });
 };
