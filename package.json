@@ -1,54 +1,55 @@
 {
-    "name": "gulp-tasks-riq",
-    "version": "0.0.11",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/relateiq/gulp-tasks-riq.git"
-    },
-    "keywords": [
-        "gulp",
-        "tasks"
-    ],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/relateiq/gulp-tasks-riq/issues"
-    },
-    "homepage": "https://github.com/relateiq/gulp-tasks-riq",
-    "dependencies": {
-        "browserify": "^6.3.2",
-        "colors": "^1.0.3",
-        "connect": "^3.3.3",
-        "gulp": "^3.8.10",
-        "gulp-angular-templatecache": "^1.4.2",
-        "gulp-autoprefixer": "0.0.8",
-        "gulp-bump": "^0.1.11",
-        "gulp-filter": "^1.0.2",
-        "gulp-git": "0.5.0",
-        "gulp-header": "^1.2.2",
-        "gulp-if": "^1.2.5",
-        "gulp-karma": "0.0.4",
-        "gulp-livereload": "^2.1.1",
-        "gulp-minify-html": "^0.1.7",
-        "gulp-ng-annotate": "^0.3.6",
-        "gulp-rename": "^1.2.0",
-        "gulp-replace": "^0.5.0",
-        "gulp-rimraf": "^0.1.1",
-        "gulp-ruby-sass": "^0.7.1",
-        "gulp-shell": "^0.2.10",
-        "gulp-tag-version": "^1.1.0",
-        "gulp-uglify": "^1.0.1",
-        "gulp-watch": "^2.0.0",
-        "karma": "^0.12.25",
-        "karma-browserify": "^1.0.0",
-        "run-sequence": "^1.0.2",
-        "through2": "^1.1.1",
-        "vinyl-source-stream": "^1.0.0",
-        "watchify": "^2.1.1"
-    }
+  "name": "gulp-tasks-riq",
+  "version": "0.0.11",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/relateiq/gulp-tasks-riq.git"
+  },
+  "keywords": [
+    "gulp",
+    "tasks"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/relateiq/gulp-tasks-riq/issues"
+  },
+  "homepage": "https://github.com/relateiq/gulp-tasks-riq",
+  "dependencies": {
+    "browserify": "^6.3.2",
+    "colors": "^1.0.3",
+    "connect": "^3.3.3",
+    "gulp": "^3.8.10",
+    "gulp-angular-templatecache": "^1.4.2",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-bump": "^0.1.11",
+    "gulp-filter": "^1.0.2",
+    "gulp-git": "0.5.0",
+    "gulp-header": "^1.2.2",
+    "gulp-if": "^1.2.5",
+    "gulp-karma": "0.0.4",
+    "gulp-livereload": "^2.1.1",
+    "gulp-minify-html": "^0.1.7",
+    "gulp-ng-annotate": "^0.3.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.0",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-ruby-sass": "^0.7.1",
+    "gulp-shell": "^0.2.10",
+    "gulp-tag-version": "^1.1.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-watch": "^2.0.0",
+    "karma": "^0.12.25",
+    "karma-browserify": "^1.0.0",
+    "run-sequence": "^1.0.2",
+    "serve-static": "^1.7.1",
+    "through2": "^1.1.1",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.1.1"
+  }
 }
