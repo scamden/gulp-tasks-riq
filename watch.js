@@ -1,7 +1,6 @@
 'use strict';
 
 var gulp = require('gulp');
-var watch = require('gulp-watch');
 var livereload = require('gulp-livereload');
 
 
@@ -12,9 +11,9 @@ module.exports = function (opts) {
             livereloadServer.changed(file.path);
         });
 
-        watch(opts.scripts, ['lint']);
-        watch(opts.index, ['index']);
-        watch(opts.templates, ['templates']);
-        watch(opts.styles, ['styles']);
+        gulp.watch(opts.scripts, ['lint']);
+        gulp.watch(opts.index, ['index']);
+        gulp.watch(opts.templates, ['templates']);
+        gulp.watch(opts.styles, ['styles']);
     });
 };
