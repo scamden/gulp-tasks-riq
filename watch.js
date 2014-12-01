@@ -12,9 +12,9 @@ module.exports = function (opts) {
             livereloadServer.changed(file.path);
         });
 
-        watch({glob: opts.scripts}, ['lint']);
-        watch({glob: opts.index}, ['index']);
-        watch({glob: opts.templates}, ['templates']);
-        watch({glob: opts.styles}, ['styles']);
+        watch(opts.scripts, ['lint']);
+        watch(opts.index, ['index']);
+        watch(opts.templates, ['templates']);
+        watch(opts.styles, ['styles']);
     });
 };
