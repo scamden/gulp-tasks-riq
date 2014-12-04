@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var karma = require('gulp-karma');
+var karma = require('karma').server;
 
 module.exports = function (taskOpts) {
     var karmaConf = taskOpts.karmaConf;
@@ -24,18 +24,20 @@ module.exports = function (taskOpts) {
     }
 
     function setKarmaOptsAction(action) {
-        karmaConf.action = action;
+        if (action === 'watch') {
+            karmaConf.singleRun = false;
+        } else {
+            karmaConf.singleRun = true;
+        }
         return karmaConf;
     }
 
-    gulp.task('karma-watch', function () {
-        return gulp.src(karmaConf.files)
-            .pipe(karma(setKarmaOptsAction('watch')));
+    gulp.task('karma-watch', function (cb) {
+        karma.start(setKarmaOptsAction('watch'), cb);
     });
 
     //arbitrarily pick karma as the export
-    return gulp.task('karma', function () {
-        return gulp.src(karmaConf.files)
-            .pipe(karma(setKarmaOptsAction('run')));
+    return gulp.task('karma', function (cb) {
+        karma.start(setKarmaOptsAction('run'), cb);
     });
 };
