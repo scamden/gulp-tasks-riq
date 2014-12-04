@@ -24,7 +24,7 @@ module.exports = function (opts) {
         runSequence(
             'clean',
             'prebuild',
-            'browserify-omega',
+            'watchify-omega',
             'watchServe',
             cb
         );
