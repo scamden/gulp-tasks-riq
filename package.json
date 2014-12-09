@@ -41,20 +41,24 @@
         "gulp-shell": "^0.2.10",
         "gulp-tag-version": "^1.1.0",
         "gulp-uglify": "^1.0.1",
-        "karma": "^0.12.25",
-        "karma-browserify": "^1.0.0",
-        "karma-chrome-launcher": "^0.1.4",
-        "karma-coverage": "^0.2.6",
-        "karma-jasmine": "^0.2.2",
-        "karma-phantomjs-launcher": "^0.1.4",
-        "karma-story-reporter": "^0.2.2",
+
         "run-sequence": "^1.0.2",
         "serve-static": "^1.7.1",
         "through2": "^1.1.1",
         "vinyl-source-stream": "^1.0.0",
         "watchify": "^2.1.1"
     },
+    "peerDependencies": {
+        "gulp": "^3.8.10",
+        "karma": "^0.12.25",
+        "karma-browserify": "^1.0.0",
+        "karma-chrome-launcher": "^0.1.4",
+        "karma-coverage": "^0.2.6",
+        "karma-jasmine": "^0.2.2",
+        "karma-phantomjs-launcher": "^0.1.4",
+        "karma-story-reporter": "^0.2.2"
+    },
     "devDependencies": {
-        "gulp": "^3.8.10"
+
     }
 }
