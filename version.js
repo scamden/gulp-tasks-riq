@@ -36,7 +36,7 @@ module.exports = function (opts) {
             .pipe(filter(packageJson))
             .pipe(tagVersion()) // tag it in the repository 
             .pipe(git.push('origin', 'master', {args: '--tags'})) // push the tags to master
-            .pipe(shell(['npm publish']))
+            .pipe(shell(['echo publishing to npm...', 'npm publish', 'echo published']))
             ;
     });
 
