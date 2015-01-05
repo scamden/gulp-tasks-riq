@@ -22,8 +22,8 @@ module.exports = function (taskOpts) {
     }
     //allow teamcity reporter to be specified
     if (argv['teamcity-reporter']) {
-        config.reporters.splice(config.reporters.indexOf('progress'), 1);
-        config.reporters.push('teamcity');
+        karmaConf.reporters.splice(karmaConf.reporters.indexOf('progress'), 1);
+        karmaConf.reporters.push('teamcity');
     }
     if (taskOpts.configure) {
         taskOpts.configure(karmaConf);
