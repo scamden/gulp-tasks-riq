@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var karma = require('karma').server;
+var argv = require('yargs').argv;
 
 module.exports = function (taskOpts) {
     var karmaConf = taskOpts.karmaConf;
@@ -18,6 +19,11 @@ module.exports = function (taskOpts) {
             karmaConf.files.push(glob);
             karmaConf.preprocessors[glob] = ['browserify'];
         });
+    }
+    //allow teamcity reporter to be specified
+    if (argv['teamcity-reporter']) {
+        config.reporters.splice(config.reporters.indexOf('progress'), 1);
+        config.reporters.push('teamcity');
     }
     if (taskOpts.configure) {
         taskOpts.configure(karmaConf);
