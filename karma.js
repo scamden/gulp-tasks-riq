@@ -9,7 +9,11 @@ module.exports = function (taskOpts) {
     };
     karmaConf.browserify.transform = taskOpts.transforms || [];
     if (taskOpts.coverage) {
-        karmaConf.browserify.transform.push('browserify-istanbul');
+        var ignores = ['**/node_modules/**', '**/bower_components/**', '**/*.spec.js', '**/*.test-body.js', '**/tmp/**'];
+        if (taskOpts.coverage.ignore) {
+            ignores.concat(taskOpts.coverage.ignore);
+        }
+        karmaConf.browserify.transform.push(['browserify-istanbul', {ignore: ignores}]);
     }
 
     karmaConf.files = karmaConf.files || [];
