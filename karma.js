@@ -11,7 +11,7 @@ module.exports = function (taskOpts) {
     if (taskOpts.coverage) {
         var ignores = ['**/node_modules/**', '**/bower_components/**', '**/*.spec.js', '**/*.test-body.js', '**/tmp/**'];
         if (taskOpts.coverage.ignore) {
-            ignores.concat(taskOpts.coverage.ignore);
+            ignores = ignores.concat(taskOpts.coverage.ignore);
         }
         karmaConf.browserify.transform.push(['browserify-istanbul', {ignore: ignores}]);
     }
