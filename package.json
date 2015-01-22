@@ -4,7 +4,7 @@
   "description": "comman gulp tasks for RelateIQ development",
   "main": "index.js",
   "publishConfig": {
-    "registry": "https://relateiq.artifactoryonline.com/relateiq/api/npm/npm-local"
+    "registry": "https://relateiq.artifactoryonline.com/relateiq/api/npm/npm-local/gulp-tasks-riq"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
