@@ -28,10 +28,9 @@ module.exports = function (opts) {
     gulp.task('tagCommit', function () {
 
         return gulp.src(packageJson)
-            .pipe(shell(['git ls-files -z release/ | xargs -0 git update-index --no-assume-unchanged',
+            .pipe(shell([
                 'git add --all',
-                'git commit -am "bumps package version"',
-                'git ls-files -z release/ | xargs -0 git update-index --assume-unchanged'
+                'git commit -am "bumps package version"'
             ]))
             .pipe(filter(packageJson))
             .pipe(tagVersion()) // tag it in the repository 

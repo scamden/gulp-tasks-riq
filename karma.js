@@ -37,6 +37,11 @@ module.exports = function (taskOpts) {
         if (action === 'watch') {
             karmaConf.singleRun = false;
         } else {
+            //for whatever reason even though karma calls the cb gulp doesn't exit the process, this is our hack, we will assume you're not watching and exit on stop
+            gulp.on('stop', function () {
+                console.log('stop');
+                process.exit();
+            });
             karmaConf.singleRun = true;
         }
         return karmaConf;
