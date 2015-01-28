@@ -17,7 +17,7 @@ If you are pushing breaking changes run
 then 
 
 `cd $RIQ/LucidWeb`
-`npm install --save <package>@<newversion>`
+`npm install --save --no-shrinkwrap <package>@<newversion>`
 
 test your change then 
 
