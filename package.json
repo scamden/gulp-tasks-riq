@@ -1,6 +1,6 @@
 {
   "name": "gulp-tasks-riq",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "comman gulp tasks for RelateIQ development",
   "main": "index.js",
   "publishConfig": {
