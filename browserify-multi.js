@@ -10,6 +10,10 @@ module.exports = function (taskOpts) {
 
     var source = require('vinyl-source-stream');
 
+    var path = require('path');
+
+    var exorcist = require('exorcist');
+
     require('colors');
 
     var files = taskOpts.bundleConfigs;
@@ -52,14 +56,24 @@ module.exports = function (taskOpts) {
         rebundle = function () {
             var startTime;
             startTime = new Date().getTime();
-            return bundler.bundle().on('error', function () {
+            var bundleStream = bundler.bundle().on('error', function () {
                 return console.log(arguments);
-            }).pipe(source(name)).pipe(gulp.dest(destination).on('end', function () {
+            });
+
+            if(taskOpts.exorcise){
+                bundleStream = bundleStream.pipe(exorcist(path.join(destination, name + '.map')));
+            }
+            bundleStream = bundleStream.pipe(source(name));
+
+            bundleStream = bundleStream.pipe(gulp.dest(destination).on('end', function () {
                 var time;
                 time = (new Date().getTime() - startTime) / 1000;
                 cb();
                 return console.log('' + name.cyan + ' was browserified: ' + (time + 's').magenta);
             }));
+
+            return bundleStream;
+            
         };
         if (isWatching) {
             bundler.on('update', rebundle);

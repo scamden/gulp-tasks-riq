@@ -27,6 +27,7 @@
     "browserify": "^8.0.0",
     "colors": "^1.0.3",
     "connect": "^3.3.3",
+    "exorcist": "~0.1.6",
     "gulp-angular-templatecache": "^1.4.2",
     "gulp-autoprefixer": "0.0.8",
     "gulp-bump": "^0.1.11",
