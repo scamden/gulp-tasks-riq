@@ -14,11 +14,3 @@ If you are pushing breaking changes run
 
 `bump minor` (you can also use major here but that's a pretty rare occurence for major library refactors and releases)
 
-then 
-
-`cd $RIQ/LucidWeb`
-`npm install --save --no-shrinkwrap <package>@<newversion>`
-
-test your change then 
-
-`shrinkweb`
