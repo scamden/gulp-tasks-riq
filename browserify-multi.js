@@ -61,7 +61,9 @@ module.exports = function (taskOpts) {
             });
 
             if(taskOpts.exorcise){
-                bundleStream = bundleStream.pipe(exorcist(path.join(destination, name + '.map')));
+                var mapFileName = name + '.map';
+                var url = taskOpts.exorcise.url && (taskOpts.exorcise.url + mapFileName)
+                bundleStream = bundleStream.pipe(exorcist(path.join(destination, mapFileName), url, taskOpts.exorcise.root));
             }
             bundleStream = bundleStream.pipe(source(name));
 
